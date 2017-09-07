@@ -1,0 +1,46 @@
+[1mdiff --git a/js-object/object.html b/js-object/object.html[m
+[1mindex 865b6a1..db4e1ff 100644[m
+[1m--- a/js-object/object.html[m
+[1m+++ b/js-object/object.html[m
+[36m@@ -51,18 +51,28 @@[m
+     //工厂模式[m
+     //有点复用率变高，[m
+     //缺点，显性的创建对象，同样冗余[m
+[31m-        function creatPerson(name,age,say){[m
+[31m-            var person = {[m
+[31m-                name:name,[m
+[31m-                age:age,[m
+[31m-                say:say[m
+[31m-            }[m
+[31m-            return person;[m
+[31m-        }[m
+[31m-        var tom = creatPerson('aa',19,function(){[m
+[31m-            console.log(this.name)[m
+[31m-        })[m
+[31m-        tom.say;[m
+[32m+[m[32m        // function creatPerson(name,age,say){[m
+[32m+[m[32m        //     var person = {[m
+[32m+[m[32m        //         name:name,[m
+[32m+[m[32m        //         age:age,[m
+[32m+[m[32m        //         say:say[m
+[32m+[m[32m        //     }[m
+[32m+[m[32m        //     return person;[m
+[32m+[m[32m        // }[m
+[32m+[m[32m        // var tom = creatPerson('aa',19,function(){[m
+[32m+[m[32m        //     console.log(this.name)[m
+[32m+[m[32m        // })[m
+[32m+[m[32m        // tom.say;[m
+[32m+[m[32m    //构造函数[m
+[32m+[m[32m    function addPerson(name,age,say){[m
+[32m+[m[32m        this.name = name;[m
+[32m+[m[32m        this.age = age;[m
+[32m+[m[32m        this.say = say;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    var tom = new addPerson('tom',19,function(){[m
+[32m+[m[32m        console.log(this.name);[m
+[32m+[m[32m    })[m
+[32m+[m[32m    tom.say();[m
+     </script>[m
+ </body>[m
+ </html>[m
+\ No newline at end of file[m

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="img_scroll.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #wrap{
+        position: relative;
+        width: 790px;
+        height: 340px;
+        margin: 100px auto;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="banner"></div>
+    </div>
+<script>
+var list = [{
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1466598390,3736667480&fm=200&gp=0.jpg",
+        href:"#"
+    },{
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1466598390,3736667480&fm=200&gp=0.jpg",
+        href:"#"
+    },{
+        url:"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3333095698,1440384017&fm=27&gp=0.jpg",
+        href:"#"
+    },{
+        url:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3299167841,4094445558&fm=200&gp=0.jpg",
+        href:"#"
+    },{
+        url:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2145191079,3013151986&fm=27&gp=0.jpg",
+        href:"#"
+    }   
+    ]
+
+    var imgS = new ImgScroll('banner',list);
+    console.log(imgS)
+    imgS.setStyle();
+
+</script>
+    
+       
+</body>
+</html>

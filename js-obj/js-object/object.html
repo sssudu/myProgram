@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //原始模式/
+        //优点,简单,清晰看到对象方法属性
+        //缺点 复用率低,容易冗余代码
+        var person = {
+            name:"ss",
+            age:18,
+            job:"programer",
+            say:function(){
+                console.log('hello'+this.name)
+            }
+        }
+        var person1 = {
+            name:"ssss",
+            age:28,
+            job:"programer",
+            say:function(){
+                console.log('hello'+this.name)
+            }
+        }
+        // person.say();
+        // console.log(person)
+        //
+
+        var obj = {
+            "name":"ss",
+            getName:function(fn){
+                // return function(){
+                //     console.log(this);
+                //console this window
+                // }
+                this.fn = fn;
+                this.fn();
+                //console this obj
+
+               
+            }
+        }
+        obj.getName(function (){
+            console.log(this);
+        });
+    //工厂模式
+    //优点 复用率变高，
+    //缺点，显性的创建对象，同样冗余
+        // function creatPerson(name,age,say){
+        //     var person = {
+        //         name:name,
+        //         age:age,
+        //         say:say
+        //     }
+        //     return person;
+        // }
+        // var tom = creatPerson('aa',19,function(){
+        //     console.log(this.name)
+        // })
+        // tom.say;
+    //构造函数
+    function addPerson(name,age){
+        if(name&&age){
+            this.name = name;
+            this.age = age;
+            this.say = function(){
+                console.log(this.name)
+             };
+        }
+       
+    }
+   
+    //混合原型
+    addPerson.prototype.say = function(){
+        console.log(this);
+        //this 指向实例化对象
+    }
+
+    //原型模式
+    //优点 实例化重复实例化构造函数时，不会重复实例化原型上的属性和方法
+    //缺点 所有原型属性方法只重复一次 重复利用率低
+    //拓展原型
+    addPerson.prototype.name = 'no';
+    addPerson.prototype.age = 0;
+
+     //实例化对象
+     var tom = new addPerson('tom',19);
+    var jack = new addPerson('jack',20);
+    console.log(tom.name);
+    console.log(jack.name);
+    jack.name;
+    var pro = new addPerson();
+    console.log(addPerson.prototype)
+    
+
+    function ff(name){
+        name:name
+    }
+
+    //改写只能一次
+    ff.prototype = {
+        say:function(){alert('aaaaa')},
+        eat:function(){alert('hungry')},
+        constructor:ff
+    }
+
+    console.log(ff.prototype)
+    </script>
+</body>
+</html>

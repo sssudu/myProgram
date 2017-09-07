@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function fa(b,a,j){
+        this.name = n;
+        this.age = a;
+        this.job = j;
+    }
+    fa.prototype.say = function(){
+        console.log(this.name);
+    }
+
+    //构造函数2 
+    function son(){
+
+    }
+    //1 原型继承
+    son.prototype = new fa();
+    </script>
+
+</body>
+</html>
