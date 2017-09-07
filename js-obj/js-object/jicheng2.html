@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fa(n,a,j){
+            this.name = n;
+            this.age = a;
+            this.job = j;
+        }
+        fa.prototype.say = function(){
+            console.log(this.name);
+        }
+
+        var f1 = new fa('yy',18,'ss')
+        console.log(f1)
+        //子构造函数
+        //call方法继承
+        //apply 与call 区别 第二个参数不同，call任意类型 apply必须数组
+        //只继承父构造函数 构造函数内部属性，不继承原型方法和属性 
+        function son(n,a,j){
+            //改变this指针
+            fa.call(this,n,a,j);
+        }
+        //apply()
+        function so(a){
+            //arguments 获取所有实参
+            // fa.apply(this,arguments)
+            String.call(this,a)
+        }
+        var son = new so('ssss');
+        console.log(son)
+        // var str = new String('')
+        </script>
+</body>
+</html>

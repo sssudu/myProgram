@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-    function fa(b,a,j){
+    function fa(n,a,j){
         this.name = n;
         this.age = a;
         this.job = j;
@@ -17,12 +17,23 @@
         console.log(this.name);
     }
 
+    // console.log(fa.constructor)
+
     //构造函数2 
     function son(){
 
     }
     //1 原型继承
     son.prototype = new fa();
+
+    var f = new fa();
+    son.prototype = f;
+    //原型构造器指向原构造函数
+    son.prototype.constructor = son;
+
+var s = new son();
+    console.log(s.constructor)
+    console.log(son.prototype.constructor)
     </script>
 
 </body>

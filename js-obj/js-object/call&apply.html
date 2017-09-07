@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var age = 18;
+        //全局变量属于window
+        //window.age
+        var o1 = {
+            name:'123',
+            getName:function(){
+                console.log(this.name);
+            }
+        }
+        //直接执行，不会延迟
+        //解析计时器时调用函数
+        //bind call区别 俩者都可以改变指针 call直接调用继承的函数 bind只是改变指针 
+        setTimeout(o1.getName.call(o1),1000);
+
+        setTimeout(function(){
+            o1.getName.call(o1)
+        },1000);
+
+        setTimeout(o1.getName.bind(o1),1000);
+
+        var arr = ["小明","小红","小岡"];
+        var o2 = {
+            class:"三年一般",
+            fn:function(name){
+                console.log(name + "是" + this.class);
+            }
+        }
+        //映射 map
+        arr.map(function(){
+            console.log(arguments[0])
+        });
+        
+        
+        </script>
+</body>
+</html>
