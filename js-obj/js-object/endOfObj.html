@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Fn(){
+            this.age = 18;
+        }
+        Fn.prototype.getAge = function(){
+            console.log(this.age);
+        }
+
+        function Fn1(){
+            this.job = 'teacher';
+        }
+        Fn1.prototype = new Fn();
+        Fn1.prototype.constructor = Fn1;
+
+        var o1 = new Fn();
+        var o2 = new Fn1();
+        console.log(o1.hasOwnProperty('age'));
+        //实例是否包含属性
+        //property 属性
+        //prototype//原型
+        //hasProperty()是否还有属性
+        //isPrototypeOf() 是否是实例的原型
+        // obj.hasOwnProperty('str');
+        //返回私有属性
+        //Object.getOwnPropertyNames(o1);
+
+        //instanceOf:判断对象是否为某类对象
+        console.log(o2);
+        console.log(o1)
+        console.log(o1 instanceof Fn)
+        console.log(o2 instanceof Fn)
+    </script>
+</body>
+</html>

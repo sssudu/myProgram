@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>变量提升</title>
+</head>
+<body>
+<script>
+    (function(){
+        console.log(y)
+    })();
+    //变量提升，变量声明置于作用於顶部
+
+    //赋值函数会覆盖声明的函数
+    
+    //声明函数与位置无关
+    //与编译期间变量提升至作用与顶部
+    
+    // console.log(x);
+    var a;
+    a = x;
+    // console.log(a);
+   
+
+    function x(){
+        // alert(this + y);
+        console.log(y);
+       
+    }
+    //函数和变量同时预编译，优先函数
+    // var x = 1;
+    // var x =2;
+    var y =5;
+    
+   
+    // x = function(){
+    //     alert(this + '2');
+    //     console.log(x);
+    //     // return this;
+    // }
+   
+   
+    // x();
+    // console.log(Window.x)
+    
+    // console.log(Window.x)
+    // x();
+    // Window.x;
+
+</script>
+</body>
+</html>

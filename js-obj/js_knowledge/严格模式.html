@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    //严格模式
+    'use strict';
+        var a;
+    function fn(){
+        a = 1;
+    }
+    fn();
+    //声明变量必须 var
+
+    function foo(){
+        var b = 10;
+
+        function foo1(){
+            console.log('b = '+ b);
+        }
+        return foo1;
+    }
+
+    var fc = foo();
+
+    fc();
+
+    console.log('a = ' + a);
+
+
+    function can(n){
+        
+        a=  function can1(){
+            n++;
+            alert(n);
+        }
+    }
+    can(3);
+    //不会释放局部变量
+    a();
+    </script>
+</body>
+</html>

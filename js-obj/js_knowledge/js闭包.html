@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包</title>
+</head>
+
+<body>
+    <ul id="uls">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        //全局作用域下，无法访问局部作用域
+        function Fn() {
+            var a = 1;
+        }
+        Fn();
+        // console.log(a);
+        function Fn2() {
+            a = 1;
+        }
+        //闭包 沟通函数内外的桥梁
+
+
+        //不使用var 声明全局变量 非严格模式
+
+
+        function foo1() {
+            var a = 4;
+            son = function() {
+                console.log(a);
+            }
+        }
+
+
+        var lis = document.querySelectorAll('li');
+        for (var i = 0; i < 10; i++) {
+            (function(n) {
+                lis[n].onclick = function() {
+                    alert(n);
+                }
+            })(i);
+        }
+    </script>
+</body>
+
+</html>
