@@ -5,20 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>tab切换</title>
+    <style>
+        li {
+            background: white;
+            transition: 1s;
+            height: 30px;
+            color: rgb(0, 255, 0);
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-top: 0px;
+            box-sizing: border-box;
+        }
+        
+        .red {
+            background: rgb(0, 0, 0);
+            height: 80px;
+        }
+    </style>
     <script src="../jQuery/jquery-1.11.2.min.js"></script>
 </head>
 
 <body>
     <ul id="oul1">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
+        <li>1
+            <p>sdjlkasjflkasasdasdasdasdasdasdjflkasjflkasjflasjflksa</p>
+        </li>
+        <li>2
+            <p>sdjlkasjflkasqwfqwfqwfqwvjflkasjflkasjflasjflksa</p>
+        </li>
+        <li>3
+            <p>sdjlkasjflkasjflkqwdqwfqwqwvqwasjflkasjflasjflksa</p>
+        </li>
+        <li>4
+            <p>sdjlkasjflkasjflkqwdqwdqwdqwdasjflkasjflasjflksa</p>
+        </li>
+        <li>5
+            <p>sdjlkasjflkasjflkaqwdqwfqwfqwfsjflkasjflasjflksa</p>
+        </li>
+        <li>6
+            <p>sdjlkasjflkasjflkaqwdqwdasfsjflkasjflasjflksa</p>
+        </li>
+        <li>7
+            <p>sdjlkasjflkasjflkqwdqwdqwfqwfasjflkasjflasjflksa</p>
+        </li>
+        <li>8
+            <p>sdjlkasjflkasjflkasjflqwdqwdqwdqwdkasjflasjflksa</p>
+        </li>
     </ul>
 
     <ul id="oul2">
@@ -58,6 +91,44 @@
     $('#oul1').removeData('name');
     console.log('dataAfterDel');
     console.log($('#oul1').data());
+
+
+    //$().attr('','')设置,获取传一个参数
+    //removeattr()移除属性
+    // $(selector).removeAttr(attributeName);
+    //form表单checked属性需要prop()修改
+
+
+    //addClass() removeClass() toggleClass()
+    //取消鼠标移动默认事件
+    window.onmousemove = function(e) {
+            var e = e || window.event;
+            e.preventDefault();
+        }
+        //取消系统默认事件
+    window.ondoubleclick = function(e) {
+        var e = e || window.event;
+        e.preventDefault();
+    }
+    $('#oul1').click(function(e) {
+
+
+        var e = e || window.event;
+        e.preventDefault();
+        //兼容事件触发对象
+        var ele = e.target || e.srcElement;
+        //console.log(ele);
+        if (ele.nodeName.toLowerCase() == 'li') {
+            $(ele).siblings().removeClass('red');
+            $(ele).toggleClass('red')
+        }
+        if (ele.nodeName.toLowerCase() == 'p') {
+            $(ele.parentNode).siblings().removeClass('red');
+            $(ele.parentNode).toggleClass('red');
+        }
+
+
+    });
 </script>
 
 </html>

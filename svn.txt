@@ -1,0 +1,8 @@
+svn 更新
+ 进入check out 文件路径 执行svn update
+
+文件check out  svn co svn://path
+
+文件提交 svn add 文件名
+
+文件状态 svn status
