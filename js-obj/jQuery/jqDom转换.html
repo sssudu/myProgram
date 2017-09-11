@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li id="lis"></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        //一 获取css选择器获取元素
+        var $li = $("li");
+        $li.click(function() {
+            alert(1);
+        })
+
+
+        //二 将原生jsDom转换为jQueryDom
+        var lis = document.getElementById("lis");
+        $(lis).text("111");
+
+
+
+        //三 $(callback) 是$(document).ready(callback)简写
+        //window.onload 指页面夹在完成后一个HTML页面只有一个 $(document).ready(callback) 文档加载之后 可重复使用 // 防止变量污染
+        $(function() {
+            var a = 1;
+            console.log(a);
+        })
+
+        $(function() {
+
+            console.log(a);
+
+        })
+    </script>
+</body>
+
+</html>

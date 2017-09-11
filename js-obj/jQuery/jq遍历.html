@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <ul id="oul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+
+    <ul id="oul2">
+        <li>1</li>
+        <li>2</li>
+        <li class="li7">3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+
+</body>
+<script>
+    arr = [1, 2, 3, 4, 5, 6, 7];
+    $.each(arr, function(index) {
+        console.log(index)
+    });
+    // console.log($('#oul1>li').size())获取元素个数
+    console.log($('#oul1>li').get(0)); //获取原生js元素
+
+    //获取选择器
+    console.log($('#oul1>li').selector)
+
+    //index()获取元素集合 返回元素下标
+    //index('选择器') 返回选择器内的该元素下标 未找到返回-1
+    console.log($('.li7').index('#oul2 li'))
+
+
+    $('#oul1').data({
+        'name': 'ss',
+        'age': 18
+
+    });
+    console.log('dataBeforeDel');
+    console.log($('#oul1').data());
+    //移除存储在元素上的数据 传参数移除指定,不传全部移除
+    $('#oul1').removeData('name');
+    console.log('dataAfterDel');
+    console.log($('#oul1').data());
+</script>
+
+</html>

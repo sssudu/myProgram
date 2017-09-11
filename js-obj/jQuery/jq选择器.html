@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            background: red;
+        }
+    </style>
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <div id="box" class="c_box">
+        <p><span>1</span></p>
+        <p>2</p>
+        <div>
+            <p><span>3</span></p>
+        </div>
+        <p><span>4</span></p>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+<script>
+    $(document).ready(function() {
+        //五个基本选择器
+        //ID选择器
+        // $("#box").css('background', 'red');
+        //多个css属性
+        $("#box").css({
+            'height': 100,
+            'width': 100
+
+        });
+
+        //类选择器(class)
+        // $('.c_box').css('background', 'yellow');
+        //标签名选择器
+        //选择dibox里的div
+        // $('div', '#box').css('font-size', 14);
+
+        //通配符
+        // $('*', '#box').css('border', '1px solid #ccc');
+        //群组选择器
+
+        // $('div,ul,li').css('background', 'pink');
+
+
+        /*****层级选择器*****/
+        //子选择器
+        // $('div>p').css('background', 'yellow');
+
+        //相邻选择器
+
+        // $('div+p').css('background', 'blue');
+
+        //同辈选择器
+        //div 后的同辈元素
+        // $('div~p').css('background', 'blue');
+
+        //伪类选择器
+        //:first 
+        /*
+        : not(selector)
+
+        : even
+
+            : odd
+
+            : eq(index)
+
+        : gt(index) 根据下标小于
+
+        : lang1 .9 +
+
+            : last
+
+            : lt(index) 根据下标大于
+
+        : header
+
+            : animated
+
+            : focus
+
+            : root1 .9 +
+
+            : target1 .9 +
+        */
+        $('div div:first').css('color', 'blue');
+
+    });
+</script>
+
+</html>
