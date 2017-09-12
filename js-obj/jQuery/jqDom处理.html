@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <p>我是原来的元素</p>
+    </div>
+    <div>原生js复制元素</div>
+</body>
+<script>
+    $(document).ready(function() {
+        //用变量存放选择器
+        //优化性能,不用每次使用时候查找Dom
+        var $box = $('#box');
+        $box.css('background', 'skyblue');
+        var last_div = document.getElementsByTagName('div')[1];
+        //创建标签
+        //*************内部插入********/
+        //可以直接对创建的标签添加样式,类名等
+        var $div = $('<div><span>我是后置元素</span></div>').css('color', 'red');
+        //将新建的元素放入到目标元素内部append()
+        //添加后返回box对象
+        //添加在原有内容之后
+        $box.append($div);
+
+        //直接字符串拼接
+        // $box.append('<div><span>aaaa</span></div>');
+        //appendTo()
+        //子元素添加到目标容器
+        // $div.appendTo($box);
+
+        //prepend() 向目标元素内部前置内容
+        //prependTo()
+        var $p = $('<div><p>我是前置元素</p></div>').css('color', 'green');
+        $box.prepend($p);
+
+        /********外部插入*********/
+        var $out = $('<p>我是外部元素</p>').css('color', 'pink');
+        //after()
+        $box.after($out);
+        //before();
+        // $box.before($out);
+
+        //将元素插入到目标容器之前/之后
+        // $out.insertAfter($box);
+        // $out.insertBefore($box);
+
+
+        //wrap()包裹元素
+        $box.wrap('<form></form>')
+
+        //replaceWith()
+        //将所有匹配的元素替换成指定的HTML或DOM元素
+        var $p = $('<p>我是原来的元素<p>').css('color', 'red');
+        var $i = $('<i>替换后的元素<i>').css({
+            'color': 'black',
+            'font-size': '20px'
+        })
+
+        $box.hover(function() {
+
+            $box.children('p').first().replaceWith($i);
+        }, function() {
+            $box.children('i').first().replaceWith($p);
+        });
+
+        //replaceAll()替换掉所有selector匹配到的元素
+        // $i.replaceAll($('p'));
+
+        // $().clone();复制元素 默认参数false,只复制标签,不复制元素内的文档内容,true复制元素内的文档内容
+
+
+        console.log(last_div);
+        var n_last_div = last_div.cloneNode(true);
+        document.body.appendChild(n_last_div);
+
+    });
+</script>
+
+</html>

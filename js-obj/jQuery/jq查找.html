@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../jQuery/jquery-1.11.2.min.js">
+    </script>
+    <title>查找</title>
+</head>
+
+<body>
+    <ul id="oUL1">
+        <li></li>
+        <li class="last_li"></li>
+        <li></li>
+        <li>
+            <p></p>
+            <p></p>
+        </li>
+        <li></li>
+        <li class="red">
+        </li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>
+    //children()参数传选择器 无参查找所有子元素
+    // $('#oUL1').children('li').css('background', 'red');
+    //find()查找所有后代元素中符合条件的元素 参数选择器
+    // $('#oUL1').find('li').css('background', 'red');
+    //next() 查找下一个相邻元素 参数选择器 符合相邻以及选择器的元素
+    //nextAll()查找相邻以及之后所有的元素 符合相邻之后以及选择器的元素
+    //nextUntil()查找之后所有元素,直到遇到参数元素停止的所有的元素
+
+    // $('#oUL1 .red').nextAll().css('background', 'red');
+
+
+    //parent()选择父元素
+    //parents()选择祖先元素 参数 符合所有祖先元素中符合条件的元素
+    //parentsUntil()查找祖先元素直到符合条件停止
+</script>
+
+
+</html>

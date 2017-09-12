@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>筛选</title>
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <ul id="oUL1">
+        <li></li>
+        <li class="last_li"></li>
+        <li></li>
+        <li>
+            <p></p>
+            <p></p>
+        </li>
+        <li></li>
+        <li class="red">
+        </li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>
+    $(document).ready(function() {
+        //eq(1)参数为正数,从前往后查找,参数为负,从后往前
+        // $('#oUL1>li').eq(-3).css('background', 'red');
+        // $('#oUL1>li').first().css('background', 'red');
+        // .last()第一个和最后一个
+
+        //.hasClass('类名') 返回bol值,多个元素只要存在class则返回true
+        // console.log($('#oUL1>li').hasClass('red'));
+
+
+        //  filter('.class')过滤器 参数传选择器
+        //参数函数
+        // $('#oUL1>li').filter('.last_li').css('background', 'blue');
+        // $('#oUL1>li').filter(function() {
+        //     console.log($('p', this).size() == 2);
+
+        //根据返回值的true或false确定是否是该元素
+        //     return $('p', this).size() == 2;
+        // }).css('background', 'blue');
+
+
+        // not('') 非过滤器
+        // $('#oUL1>li').not('.last_li').css('background', 'blue');
+
+        // slice(2,4) 选择(2,4]的元素
+        $('#oUL1>li').slice(2, 4).css('background', 'blue');
+
+
+    });
+</script>
+
+</html>

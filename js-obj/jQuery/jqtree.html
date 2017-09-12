@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>树形列表</title>
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <div id="tree_box"></div>
+</body>
+<script>
+    $(document).ready(function() {
+        var json_data = [{
+            name: "北京四中",
+            gradeList: [{
+                name: "高一",
+                classList: ["1101", "1102", "1103", "1104"]
+            }, {
+                name: "高二",
+                classList: ["2101", "2102", "2103", "2104"]
+            }, {
+                name: "高三",
+                classList: ["3101", "3102", "3103", "3104"]
+            }]
+        }, {
+            name: "北京五中",
+            gradeList: [{
+                name: "高一",
+                classList: ["1101", "1102", "1103", "1104"]
+            }, {
+                name: "高二",
+                classList: ["2101", "2102", "2103", "2104"]
+            }, {
+                name: "高三",
+                classList: ["3101", "3102", "3103", "3104"]
+            }]
+        }, {
+            name: "北京六中",
+            gradeList: [{
+                name: "高一",
+                classList: ["1101", "1102", "1103", "1104"]
+            }, {
+                name: "高二",
+                classList: ["2101", "2102", "2103", "2104"]
+            }, {
+                name: "高三",
+                classList: ["3101", "3102", "3103", "3104"]
+            }]
+        }]
+    });
+</script>
+
+</html>

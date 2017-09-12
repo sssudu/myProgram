@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+    <style>
+        #wrap {
+            position: absolute;
+            top: 100px;
+            left: 200px;
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        
+        #box {
+            position: absolute;
+            top: 200px;
+            left: 100px;
+            width: 50px;
+            height: 50px;
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="box"></div>
+    </div>
+
+</body>
+<script>
+    $(function() {
+        $box = $('#box');
+        //offset()返回元素相对于窗口的位置
+        //position()返回元素的left top值
+        //innerWidth() innerHeight()
+        //outerWidht() outerHeight()可传参数 bol false (width+border+padding)
+        // true(width+padding+border+margin)
+        console.log($box.offset().left);
+
+        $box.mousedown(function(e) {
+            e.preventDefault();
+            var eLeft = e.offsetX;
+            var eTop = e.offsetY;
+            $box.mousemove(function(e) {
+                // values: e.clientX, e.clientY, e.pageX, e.pageY
+                // console.log(this.offsetLeft)
+                console.log(e.offsetX)
+
+                $(this).css({
+                    'left': e.offsetX - 200 - eLeft + 'px',
+                    'top': e.offsetY - 100 - eTop + 'px'
+
+                });
+            });
+
+        });
+    })
+</script>
+
+</html>

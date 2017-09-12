@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+    $(document).ready(function() {
+        var arr = [1, 2, 3, 5, 6, 7, 8, 876];
+        //jqeach方法,第一个参数传数组或对象,第二个传回调函数
+        // $.each(collection, function (indexInArray, valueOfElement) { 
+
+        // });
+        $.each(arr, function(indexInArray, valueOfElement) {
+            // console.log(valueOfElement)
+        });
+        var obj = {
+            'name': 'ss',
+            'age': 19
+        }
+        var o1 = {
+            'job': 'yy'
+        }
+
+
+        //$.extend();返回合并后对象,将一个或者多个对象的属性合并到一个对象上
+        // 第一个参数为合并的,第二个为新加的对象
+
+        //不改变第一个对象,创建空对象,合并到空对象
+        var empty = {};
+        $.extend(empty, o1, obj);
+        // var n_o1 = $.extend(obj, o1);
+        console.log(obj);
+        console.log(o1);
+        console.log(empty);
+        $.each(obj, function(indexInArray, valueOfElement) {
+            // console.log(indexInArray);
+            // console.log(valueOfElement)
+        });
+
+
+
+        //$.grep过滤
+        //$.grep(arr, fn, bol);bol不传默认为false bol为true,则返回fn返回为false的,bol为false,返回fn值为true的
+        // var new_arr = $.grep(arr, function(n) {
+        //     return n > 5;
+        // }, true);
+        // console.log(new_arr);
+
+        // $.map(数组,函数)
+        // var arr2 = $.map(arr, function(n) {
+        //     return n * 2;
+        // })
+        // var arr2 = $.map(arr, function(n) {
+        // return [n, n + 1];
+        // })
+        // console.log(arr2);
+
+
+        //.map()数组映射
+        //返回数组每个数*2
+        // var n_arr3 = arr.map(function(n) {
+        // return n * 2;
+        // })
+
+        //返回二维数组
+        // var n_arr3 = arr.map(function(n) {
+        // return [n, n * 2];
+        // })
+        // console.log(n_arr3);
+
+
+        // var index = $.inArray(1, arr);
+        //返回1在arr中第一个出现的位置
+        var i = 1;
+        var nums = [];
+        while (i < 10) {
+            i++;
+            nums.push(parseInt(Math.random() * 20));
+        }
+        console.log(nums)
+        console.log($.unique(nums));
+
+
+    });
+</script>
+
+</html>

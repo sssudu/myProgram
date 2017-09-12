@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../someInterst/jq.js"></script>
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            transform: rotate(90deg);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    $(document).ready(function() {
+        var letter;
+        $.ajax({
+            type: "get",
+            url: "json/fallWater.json",
+            data: "data",
+            dataType: "json",
+            success: function(response) {
+                console.log(response)
+                fall(response)
+            }
+        });
+
+        function fall(response) {
+            
+            var lis = $(document.createElement('li'));
+            lis.html(response['song']);
+            lis.speed = random(1, 10);
+            lis.timer = setInterval(function() {
+                lis.speed++;
+                lis.top = parseInt(lis.css('top'));
+                $('#box').append(lis);
+                lis.css('top', lis.top + lis.speed);
+                if (lis.top > 500) {
+                    clearInterval(lis.timer);
+                    lis.get(0).parentNode.removeChild(lis.get(0))
+                }
+            }, 100)
+        }
+
+        function random(Min, Max) {
+            var rand = Math.random() * (Max - Min + 1) + Min;
+            return parseInt(rand);
+        }
+    });
+</script>
+
+</html>
