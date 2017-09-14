@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+    <style>
+        .black {
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">aaaa</div>
+</body>
+<script>
+    //扩展Jq方法 对jq核心函数扩展调用 $.函数名
+    $.extend({
+        min: function (a, b) {
+            return a < b ? a : b;
+        },
+        max: function (a, b) {
+            return a > b ? a : b;
+        }
+
+    })
+    var a = $.min(1, 10);
+    a = $.max(1, 10);
+    console.log(a);
+
+
+    //扩展dom元素自定义方法
+    //单个方法
+    // $.fn.plagin1 = function () { $(this).addClass('black') }
+    //多个方法
+    // $.fn.extend({
+    //     plagin: function () {
+    //         this.css('background', 'red');
+    //         //返回调用对象,为之后使用函数提供对象
+    //         return this;
+    //     }
+    // })
+    
+    (function ($) {
+        //函数内$指代jQuery核心函数
+        //防止其他插件影响jq
+        //扩展插件
+
+        $.fn.extend({
+            backRand: function () {
+                var rand = parseInt(Math.random() * 256);
+                var rand2 = parseInt(Math.random() * 256);
+                var rand3 = parseInt(Math.random() * 256);
+                this.css('background', 'rgb(' + rand + ',' + rand2 + ',' + rand3 + ')');
+                return this;
+            },
+            cssAnimation: function (cssObj) {
+                var setting = {
+                    width: 100,
+                    height: 100,
+                }
+                //合并俩个对象
+                $.extend(setting, cssObj);
+                this.css(setting);
+                return this;
+            }
+        })
+
+    })(jQuery)
+    $('#box').click(function (e) { 
+        e.preventDefault();
+        console.log(this)
+        $(this).backRand();
+        
+    });
+</script>
+
+</html>

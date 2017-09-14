@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <form action=""><input type="text" id="username"></form>
+    <div id="box">
+        <p>委托元素</p>
+        <p>委托元素</p>
+        <p>委托元素</p>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        var $username = $('#username');
+        //blur事件
+        // $username.blur(function(e) {
+        //     e.preventDefault();
+        //     alert(e);
+
+        // });
+        //focus事件获取焦点
+        // $username.focus(function(e) {
+        //     e.preventDefault();
+        //     console.log(1);
+
+        // });
+        //focusin focusout 父级获取子集事件
+        //click([参数],fn) 参数绑定于e上
+        //hover() 模拟鼠标悬停事件,俩个回调函数,只有一个处理函数时,滑入画出都执行
+
+
+        //jqon绑定多个事件,使用同一个处理函数
+        //on() off()绑定委托,移除一个或多个事件处理方法
+        //事件委托this指向委托的元素,不是被委托的元素
+        // $("#box").on('click mouseleave mouseenter',[1,2,3], function (e) {
+        //     console.log(this);
+        //     console.log(e.data)
+        // });
+        //移除参数事件类型的事件处理方法 可以移除多个
+        // $("#box").off('mouseenter mouseleave');
+
+        //和on()方法类似,区别在于参数的顺序
+        // $('#box').delegate('p','click',function(){
+        //     console.log(this);
+        //     $(this).slideToggle();
+        // })
+
+        //undelegate()移除delegate绑定方法
+
+        // $('#box').mouseenter(function(){
+        //     //调用点击函数前先移除其他绑定的事件
+        //     //不移除可能绑定多个事件
+        //     //jq事件原型是addEventListener(),可绑定多个事件
+        //     $(this).off('click').click(function(){
+        //         alert(1);
+        //     })
+        // })
+
+        //bind(type,data,fn)为匹配的元素绑定一个或多个特定的事件和处理函数
+        //没有事件代理功能,可绑定多个事件
+        // $('#box').bind('click',function(){
+        //     alert(1);
+        //     $(this).unbind('click');
+        // })
+        // //移除click事件绑定的函数
+        // $('#box').unbind('click');
+
+
+        //one(type,fn)一次性事件 
+
+        // $('#box').one('click mouseenter', function () {
+        //     alert(this);
+        // })
+        // $('#box').click(function () {
+        //     alert(1);
+        // })
+        //主动触发匹配元素绑定的某类事件
+        // $('#box').trigger('click');
+
+        //时间常量 slow normal fast
+        //slide(slow,fn) slideUp() slideDown() slideToggle() fadeOut() fadeIn() fadeToggle();
+        // 可传执行事件,以及回调函数 
+        //stop(true,true)停止当前动画到结束状态 一个true则立即停止执行新的动画
+        //finish()立即完成元素所有的动画
+
+
+        //设置在全局,在事件内无效
+        //jQuery jQuery.fx.off=true停止页面所有的动画,
+        //jQuery.fs.Interval = 100;设置动画帧速 jq的所有动画
+        $(document).off('click', 'doubleclick')
+        $('#box').click(function () {
+            var i = 0;
+            var rand
+            $(this).stop().slideToggle(500, function foo() {
+                i++;
+                if (i == 40) {
+                    return;
+                }
+                if (i % 2) {
+                    rand = random(0, 255);
+                }
+                $('#box').slideToggle(500, foo).css('background', 'rgb(' + (255 - rand) + ',' + rand + ',' + (255 - rand) + ')');
+
+            }
+            )
+        });
+
+        function random(Min, Max) {
+            var rand = Math.random() * (Max - Min + 1) - Min;
+            return parseInt(rand);
+        }
+
+    });
+
+</script>
+
+</html>

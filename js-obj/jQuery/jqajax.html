@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: 'get',
+            url: 'eval.js',
+            dataType: 'text',
+            success: function (response) {
+                console.log(response)
+            },
+            error: function (xmlHttprequest) {
+                console.log(a);
+                console.log(b);
+                console.log('error');
+            }
+
+        }
+        );
+        //加载html到本页面选择器下 head标签自动屏蔽
+        // load('url selector' ,callback) 异步,加载同时执行其他js代码
+        // $('#box').load('html/header.html #header,style',function(){
+        //     //回调函数可执行
+        //     // fooo();
+        // })
+        //无法执行,异步执行,函数未加载
+        // fooo()
+
+        //get请求发送不超过2kb
+        $.get("json/fallWater.json", '',
+            function (data, textStatus, jqXHR) {
+                console.log(data)
+            },
+            "json"
+        );
+        //php访问服务器
+        $.get('php/request.php',{city:'北京'},function(data){
+            console.log(data)
+        },'json')
+
+        //jsonp跨域
+        $.ajax({
+            type: "get",
+            url: "http://api.jisuapi.com/weather/query?appkey=dd87100f70330bf1",
+            data: {city:'北京'},
+            //jsonp必须写datatype
+            dataType: "jsonp",
+            success: function (response) {
+                console.log(response)
+            }
+        });
+    });
+
+</script>
+
+</html>
