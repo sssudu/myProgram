@@ -186,3 +186,156 @@
     
 // }
 // console.log(4*sum);
+
+
+// 1.
+// var a =3;
+// var b =4;
+// var c =5;
+// //三元,表达式为true,执行前面,false执行后面
+// console.log(a>b?a:c);
+
+// 2.
+// var a = 100;
+
+//直接a属于全局变量,
+// function foo(){
+//     // console.log(a);
+//     //没有var定义的全局变量不会提升
+//     a = 10;
+//     console.log(a);
+// }
+// foo();
+
+// (function(){
+//  var a =b= 3;
+// })()
+// // a = 3;
+// //报错类型undefined
+// //数字类型number
+// console.log(typeof a);
+
+//6.
+// var a = 100;
+//同名局部变量变量提升与参数优先取参数
+// function foo(a){
+//     console.log(a);
+//     a = 10;
+//     console.log(a);
+// }
+// foo(a);
+// console.log(a);
+
+//7.
+    // var n =999;
+    // function foo(n){
+    //     n = n+100;
+    //     console.log(n);
+    // }
+    // foo(n);
+
+//8.
+    // function foo(){
+    //     var n =999;
+    // }
+    // foo();
+    // console.log(n);
+
+    //9.
+    
+    // function foo(){
+    //     n = 999;
+    // }
+    // foo();
+    // console.log(n);
+
+    //10.
+    // var a = 100;
+    // function foo(){
+    //     console.log(a);
+    //     var a = 10;console.log(a);
+    // }
+    // foo();
+    // console.log(a);
+
+    //11.
+    // function add(){
+    //     n = 1000;
+    // }
+    // var y = add();
+    // console.log(y);
+
+    //12.
+    // (function(){
+        //变量 = 函数表达式只有在只可以通过变量名访问,不能根据函数名访问
+        //具名函数表达式,无法在定义域内提升,声明函数可以提升
+        // var y = function add(){
+        //     console.log(1);
+        // }
+        // y();
+
+        // add();
+    // })()
+
+    //13.
+
+    // var str = '10ss';
+    //需要变量接收
+    // str = str.split('').reverse().join('');
+    // var num = 20;
+    // console.log(str+num);
+    // console.log(str);
+
+    //14.
+    // var k = 0;
+    // for(i=0,j=0;i<10,j<6;i++,j++){
+
+    // }
+    // k = i+j;
+    // console.log(k);
+
+
+    //递归階乘
+    // function rec(x){
+    //     if(x==1){
+    //         return 1
+    //     }else{
+    //         return x*rec(x-1)
+    //     }
+
+    // }
+    // console.log(rec(2))
+
+    // Array.prototype.rec = function(num,min,max){
+    //     if(num==0){
+    //         console.log(this.sort(function(a,b){
+    //             return a>b;
+    //         }));
+    //         return this;
+    //     }
+    //     if(num>=10){
+    //         num=10;
+    //     }
+    //     if(min+max){
+    //         var rand = parseInt(Math.random()*(max-min+1)-min);
+    //     }else{
+    //         var rand = parseInt(Math.random()*10);
+    //     }
+        
+    //     if(this.indexOf(rand)==-1){
+    //         this.push(rand);
+    //         this.rec(num-1,min,max)
+            
+    //     }else{
+    //         this.rec(num,min,max);
+    //     }
+        
+    // }
+    // var nums = [];
+    // nums.rec(8);
+    // console.log(nums)
+
+    
+
+
+
